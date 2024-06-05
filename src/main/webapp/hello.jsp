@@ -15,7 +15,7 @@
 		name = "아무개";
 	}
 	%>
-	<h1>Hello JSP World</h1>
+	<h1>Hello JSP World!</h1>
 	<p>안녕하세요, <%= name %>님</p>
 	<p>이것은 JSP로 만들어진 동적 페이지입니다.</p>
 </body>
