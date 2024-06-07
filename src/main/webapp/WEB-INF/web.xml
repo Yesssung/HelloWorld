@@ -27,19 +27,47 @@
   </context-param>
   
   
+  <!-- Filter 등록  -->
+  <filter>
+  	<filter-name>EncodingFilter</filter-name>
+  	<filter-class>himedia.filter.EncodingFilter</filter-class>
+  	
+  	<!-- Filter 초기화 Parameter -->
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>UTF-8</param-value>
+  	</init-param>
+	
+  </filter>
+  <filter>
+  	<filter-name>LoggingFilter</filter-name>
+  	<filter-class>himedia.filter.LoggingFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+  	<filter-name>EncodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>		<!-- 모든 요청 -->
+  </filter-mapping>
+    
+  <filter-mapping>
+  	<filter-name>LoggingFilter</filter-name>	
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
   <!-- Servlet 등록 -->
   <servlet>
 	  <servlet-name>MyFirstServlet</servlet-name>
 	  <servlet-class>himedia.HelloServlet</servlet-class>
 	  
-	  <!-- 파라미터 전달: 현재 sevlet 내부에서만 접근 -->
+	  <!-- 파라미터 전달: 현재 servlet 내부에서만 접근 -->
 	  <init-param>
 	  	<param-name>servletName</param-name>
 	  	<param-value>HelloServlet</param-value>
 	  </init-param>
 	  <init-param>
 	  	<param-name>description</param-name>
-	  	<param-value>나의 첫 Sevlet</param-value>
+	  	<param-value>나의 첫 Servlet</param-value>
 	  </init-param>
   </servlet>
   
