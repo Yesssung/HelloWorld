@@ -12,7 +12,7 @@
 	<%
 	String name = request.getParameter("name");
 	if (name == null) {	//	사용자가 전달한 매개변수가 없으면 
-		name = "아무개";
+		name = "포켓몬";
 	}
 	%>
 	<h1>Hello JSP World!</h1>

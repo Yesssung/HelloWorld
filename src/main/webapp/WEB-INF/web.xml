@@ -9,4 +9,62 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  
+  
+  <!-- Content Parameter : Web App에 등록된 모든 Servlet들이 공유할 수 있는 파라미터 
+  						 : if) dbUser, dbPass 가 필요하다면 -->
+  <context-param>
+  	<param-name>appName</param-name>
+  	<param-value>HelloWorld</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>dbUser</param-name>
+  	<param-value>himedia</param-value>
+  </context-param>
+    <context-param>
+  	<param-name>dbPass</param-name>
+  	<param-value>himedia</param-value>
+  </context-param>
+  
+  
+  <!-- Servlet 등록 -->
+  <servlet>
+	  <servlet-name>MyFirstServlet</servlet-name>
+	  <servlet-class>himedia.HelloServlet</servlet-class>
+	  
+	  <!-- 파라미터 전달: 현재 sevlet 내부에서만 접근 -->
+	  <init-param>
+	  	<param-name>servletName</param-name>
+	  	<param-value>HelloServlet</param-value>
+	  </init-param>
+	  <init-param>
+	  	<param-name>description</param-name>
+	  	<param-value>나의 첫 Sevlet</param-value>
+	  </init-param>
+  </servlet>
+  
+  
+  <!-- url패턴 - 클래스 연결 (Servlet-mapping) -->
+  <servlet-mapping>
+  	<servlet-name>MyFirstServlet</servlet-name>
+  	<url-pattern>/hs</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- Error Pages -->
+  <!-- HTTP 상태 코드에 의한 Error Pages -->
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/views/errors/error.404.jsp</location>
+  </error-page>
+  
+  
+  <!-- 특정 예외상황에 의한 Error Pages -->
+  <error-page>
+  	<exception-type>java.lang.Throwable</exception-type>
+  	<location>/views/errors/errors.jsp</location>
+  </error-page>
 </web-app>
+
+
+  <!--  -->
